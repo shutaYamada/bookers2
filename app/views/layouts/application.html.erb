@@ -24,12 +24,12 @@
             <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
             <li class="nav-item">
-              <%= link_to home_about_path, class: 'nav-link text-white' do %>
+              <%= link_to user_path(current_user.id), class: 'nav-link text-white' do %>
                 <i class="fa-solid fa-house" style="color: #f7f7f7;"></i> Home
               <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to  home_about_path, class: 'nav-link text-white' do %>
+              <%= link_to  users_path, class: 'nav-link text-white' do %>
                 <i class="fa-solid fa-users" style="color: #f8f9fc;"></i> Users
               <% end %>
             </li>

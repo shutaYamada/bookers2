@@ -1,3 +1,4 @@
+
 <div class=" container row mx-auto mt-4"> 
     <div class="col-md-3">
         <div>
@@ -6,11 +7,11 @@
             <table class="table">
                 <tr>
                     <th>name</th>
-                    <th><%= @book.user.name %></th>
+                    <th><%= @user.name %></th>
                 </tr>
                 <tr>
                     <th>introduction</th>
-                    <th><%= @book.user.introduction %></th>
+                    <th><%= @user.introduction %></th>
                 </tr>
             </table>
         </div>
@@ -36,30 +37,28 @@
     </div>
     
     <div class="col-md-8 offset-md-1">
-        <h1>Books detail</h1>
-        <table class="table ">
+        <h1>Books</h1>
+        <table class="table">
             <tr>
-                <td>
-                    <%= link_to user_path(@book.user.id) do %>
-                        <div><%= image_tag @book.user.get_profile_image(100, 100) %></div>
-                        <div><%= @book.user.name %></div>
-                    <% end %>
-                </td>
-                <td>
-                    <%= link_to book_path(@book.id) do %>
-                        <%= @book.title %>
-                    <% end %>
-                </td>
-                <td>
-                    <%= @book.body %>
-                </td>
-                
-                <% if current_user.id == @book.user.id %>
-                <td>
-                    <%= link_to "Edit",edit_book_path(current_user.id), class:"btn btn-success" %>    
-                </td>
-                <% end %>
+                <th></th>
+                <th>Title</th>
+                <th>Opinion</th>
             </tr>
+            <% @books.each do |book| %>
+            <tr>
+                <th>
+                    <%= link_to user_path(@user.id) do %>
+                        <%= image_tag book.user.get_profile_image(100, 100) %>
+                    <% end %>
+                </th>
+                <td>
+                    <%= link_to book_path(book.id) do %>
+                        <%= book.title %>
+                    <% end %>
+                </td>
+                <td><%= book.body %></td>
+            </tr>
+            <% end %>
         </table>
     </div>
 </div>
