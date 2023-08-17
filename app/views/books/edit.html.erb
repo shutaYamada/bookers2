@@ -1,13 +1,8 @@
 <div class="container mt-4">
-    <% if @book.errors.any? %>
-      <%= @book.errors.count %>error prohibited this obj from being saved:
-      <ul>
-        <% @book.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    <% end %>
+  <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+    <%= render 'layouts/errors', object: @book %>
+
         <h1>Editing Book</h1>
         <%= form_with model: @book do |f| %>
             <div><%= f.label :Title %></div>
@@ -22,4 +17,5 @@
             |<%= link_to "Back", books_path %>
         </div>
     </div>
+  </div>
 </div>
