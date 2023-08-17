@@ -1,5 +1,7 @@
 
-<div class=" container row mx-auto mt-4"> 
+<div class=" container">
+  <%= flash[:notice] %>
+  <div class="row mx-auto mt-4"> 
     <div class="col-md-3">
         <div>
             <h1>User info</h1>
@@ -61,4 +63,5 @@
             <% end %>
         </table>
     </div>
+  </div>
 </div>
